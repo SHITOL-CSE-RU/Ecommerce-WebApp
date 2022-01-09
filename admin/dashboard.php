@@ -1,3 +1,3 @@
 <?php
-$views = "manage-cat";
+$views = "dashboard";
 include("templates.php");
