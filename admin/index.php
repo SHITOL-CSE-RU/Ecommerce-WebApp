@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+include("Class/adminBack.php");
+$obj_adminback = new adminBack();
+if (isset($_POST['admin_btn'])) {
+    $obj_adminback->admin_login($_POST);
+}
+session_start();
+if (isset($_SESSION['id'])) {
+    header('location:dashboard.php');
+}
+?>
+
 <?php include("includes/head.php") ?>
 
 <body>
