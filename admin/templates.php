@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include("includes/head.php") ?>
+<?php include("Class/adminBack.php");
+session_start();
+$adminID = $_SESSION['id'];
+if ($adminID == null) {
+    header('location:index.php');
+}
+
+?>
+<?php include("includes/head.php"); ?>
 
 <body>
     <div class="fixed-button">
