@@ -35,10 +35,18 @@ class adminBack
                 session_start();
                 $_SESSION['id'] = $admin_info['id'];
                 $_SESSION['adminEmail'] = $admin_info['admin_email'];
+                $_SESSION['adminPass'] = $admin_info['admin_pass'];
             } else {
                 $errmsg = 'Your Email or Password is incorrect !';
                 return $errmsg;
             }
         }
+    }
+    function adminLogout()
+    {
+        unset($_SESSION['id']);
+        unset($_SESSION['adminEmail']);
+        unset($_SESSION['adminPass']);
+        header('location:index.php');
     }
 }
