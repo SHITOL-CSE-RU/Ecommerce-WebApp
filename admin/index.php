@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 include("Class/adminBack.php");
 $obj_adminback = new adminBack();
@@ -86,5 +83,3 @@ if (isset($_SESSION['id'])) {
     </section>
     <?php include("includes/script.php") ?>
 </body>
-
-</html>
