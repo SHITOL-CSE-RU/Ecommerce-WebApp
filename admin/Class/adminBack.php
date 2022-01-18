@@ -85,10 +85,14 @@ class adminBack
         $query = "UPDATE category SET ctg_status=0 WHERE ctg_id=$id_cat";
         mysqli_query($this->conn, $query);
     }
-    function update_category($id_cat)
+    function getCatinfo_toupdate($id_cat)
     {
-        $query = "UPDATE category SET ctg_status=1 WHERE ctg_id=$id_cat";
-        mysqli_query($this->conn, $query);
+        $query = "SELECT * FROM category WHERE ctg_id=$id_cat";
+        if (mysqli_query($this->conn, $query)) {
+            $cat_info = mysqli_query($this->conn, $query);
+            $ct_info = mysqli_fetch_assoc($cat_info);
+            return $ct_info;
+        }
     }
     function delete_category($id_cat)
     {
@@ -96,6 +100,17 @@ class adminBack
         if (mysqli_query($this->conn, $query)) {
             $msg = "Category Deleted Successfully";
             return $msg;
+        }
+    }
+    function update_category($receive_data)
+    {
+        $ctg_name = $receive_data['u_ctg_name'];
+        $ctg_des = $receive_data['u_ctg_des'];
+        $ctg_id = $receive_data['u_ctg_id'];
+        $query = "UPDATE category SET ctg_name='$ctg_name', ctg_des='$ctg_des' WHERE ctg_id=$ctg_id";
+        if (mysqli_query($this->conn, $query)) {
+            $return_msg = "Category Updated Successfully !";
+            return $return_msg;
         }
     }
 }

@@ -7,8 +7,6 @@ if (isset($_GET['status'])) {
         $obj_adminBack->publish_category($get_id);
     } elseif ($_GET['status'] == 'unpublish') {
         $obj_adminBack->unpublish_category($get_id);
-    } elseif ($_GET['status'] == 'update') {
-        $obj_adminBack->update_category($get_id);
     } elseif ($_GET['status'] == 'delete') {
         $msg = $obj_adminBack->delete_category($get_id);
     }
@@ -55,7 +53,7 @@ if (isset($msg)) {
 
                 </td>
                 <td>
-                    <a href="?status=update&&id=<?php echo $ctg['ctg_id']; ?>"> Update </a>
+                    <a href="edit_cat.php?status=edit&&id=<?php echo $ctg['ctg_id']; ?>"> Edit </a>
                     <a href="?status=delete&&id=<?php echo $ctg['ctg_id']; ?>"> Delete </a>
                 </td>
             </tr>
