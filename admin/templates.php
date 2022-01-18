@@ -57,6 +57,8 @@ if (isset($_GET['adminLogout'])) {
                                                 include("views/add-product-view.php");
                                             } elseif ($views == "manage-product") {
                                                 include("views/manage-product-view.php");
+                                            } elseif ($views == "edit-cat") {
+                                                include("views/edit_cat_view.php");
                                             }
                                             ?>
 
