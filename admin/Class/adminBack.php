@@ -113,4 +113,34 @@ class adminBack
             return $return_msg;
         }
     }
+    function add_product($data)
+    {
+        $pdt_name = $data['pdt_name'];
+        $pdt_price = $data['pdt_price'];
+        $pdt_des = $data['pdt_des'];
+        $pdt_ctg = $data['pdt_ctg'];
+        $pdt_img_name = $_FILES['pdt_image']['name'];
+        $pdt_img_size = $_FILES['pdt_image']['size'];
+        $pdt_tmp_name = $_FILES['pdt_image']['tmp_name'];
+        $pdt_ext = pathinfo($pdt_img_name, PATHINFO_EXTENSION);
+        $pdt_status = $data['pdt_status'];
+
+        if ($pdt_ext == 'jpg' or $pdt_ext == 'png' or $pdt_ext == 'jpeg') {
+            if ($pdt_img_size <= 2097152) {
+                $query = "INSERT INTO products(pdt_name,pdt_price,pdt_des,pdt_ctg,pdt_img,pdt_status) 
+                VALUE ('$pdt_name',$pdt_price,'$pdt_des',$pdt_ctg,'$pdt_img_name',$pdt_status )";
+                if (mysqli_query($this->conn, $query)) {
+                    move_uploaded_file($pdt_tmp_name, 'upload/' . $pdt_img_name);
+                    $msg = "Product Added Successfully";
+                    return $msg;
+                }
+            } else {
+                $msg = "Your File Size Should Be Less or Equal to 2 MB!";
+                return $msg;
+            }
+        } else {
+            $msg = "Your File Must Be a JPG or PNG or JPEG File !";
+            return $msg;
+        }
+    }
 }

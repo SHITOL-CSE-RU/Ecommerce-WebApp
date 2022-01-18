@@ -43,14 +43,14 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li class=" ">
-                        <a href="add-cat.php">
+                        <a href="add-product.php">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Add Product</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
                     <li class=" ">
-                        <a href="manage-cat.php">
+                        <a href="manage-product.php">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Manage Product</span>
                             <span class="pcoded-mcaret"></span>
