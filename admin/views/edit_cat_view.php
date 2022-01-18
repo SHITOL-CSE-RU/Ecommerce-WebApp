@@ -12,7 +12,7 @@ if (isset($_POST['u_ctg_btn'])) {
 }
 ?>
 
-<form action="" method="post">
+<form class="form" action="" method="post">
     <?php
     if (isset($return_msg)) {
         echo $return_msg;
