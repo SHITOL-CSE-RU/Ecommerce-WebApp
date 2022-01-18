@@ -67,4 +67,35 @@ class adminBack
             return $message;
         }
     }
+    function display_category()
+    {
+        $query = "SELECT * FROM category";
+        if (mysqli_query($this->conn, $query)) {
+            $return_ctg = mysqli_query($this->conn, $query);
+            return $return_ctg;
+        }
+    }
+    function publish_category($id_cat)
+    {
+        $query = "UPDATE category SET ctg_status=1 WHERE ctg_id=$id_cat";
+        mysqli_query($this->conn, $query);
+    }
+    function unpublish_category($id_cat)
+    {
+        $query = "UPDATE category SET ctg_status=0 WHERE ctg_id=$id_cat";
+        mysqli_query($this->conn, $query);
+    }
+    function update_category($id_cat)
+    {
+        $query = "UPDATE category SET ctg_status=1 WHERE ctg_id=$id_cat";
+        mysqli_query($this->conn, $query);
+    }
+    function delete_category($id_cat)
+    {
+        $query = "DELETE FROM category WHERE ctg_id=$id_cat";
+        if (mysqli_query($this->conn, $query)) {
+            $msg = "Category Deleted Successfully";
+            return $msg;
+        }
+    }
 }
